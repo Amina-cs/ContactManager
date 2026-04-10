@@ -1,0 +1,17 @@
+# Dependency directories
+node_modules
+npm-debug.log
+
+# Local environment variables
+.env
+
+# Docker files
+Dockerfile
+docker-compose.yml
+
+# Git
+.git
+.gitignore
+
+# Database files (if you have a local sqlite or logs)
+*.log

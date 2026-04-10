@@ -1,0 +1,15 @@
+# Dependency directories
+node_modules
+
+# Build output
+dist
+
+# Docker and Git
+Dockerfile
+.dockerignore
+.git
+.gitignore
+
+# Logs and system files
+npm-debug.log
+.DS_Store
