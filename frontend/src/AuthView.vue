@@ -16,12 +16,17 @@ async function handleSubmit() {
     const res = await api.post(endpoint, form.value);
     
     // Store whatever ID comes back (checking both res.data.id and res.data.user.id)
-    const userId = res.data.id || (res.data.user && res.data.user.id);
+    const user = res.data || (res.data.user );
     
-    if (userId) {
-      localStorage.setItem('userId', userId);
-      console.log("Login Success, User ID:", userId);
-      router.push('/contacts'); 
+    if (user) {
+      localStorage.setItem('userId', user.id);
+      console.log("Login Success, User ID:", user.id);
+      console.log(user.user)
+      if (user.user.username === 'admin' || user.user.role === 'admin') {
+        router.push('/admin');
+      } else {
+        router.push('/contacts');
+      } 
     } else {
       alert("Server didn't return a User ID");
     }
